@@ -6,7 +6,7 @@
 /*   By: aseptimu <aseptimu@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 13:08:10 by aseptimu          #+#    #+#             */
-/*   Updated: 2022/02/07 13:08:30 by aseptimu         ###   ########.fr       */
+/*   Updated: 2022/02/10 18:25:01 by aseptimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_atoi(const char *str)
 		str++;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (ret > INT_MAX || i > 19)
+	if (ret > INT_MAX || i > 19 || str[i] != '\0')
 		return (0);
 	return (ret);
 }
