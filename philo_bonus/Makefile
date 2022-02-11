@@ -16,6 +16,8 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
+bonus : $(NAME)
+
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
