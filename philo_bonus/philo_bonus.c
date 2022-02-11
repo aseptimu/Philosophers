@@ -6,7 +6,7 @@
 /*   By: aseptimu <aseptimu@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:59:55 by aseptimu          #+#    #+#             */
-/*   Updated: 2022/02/11 17:53:46 by aseptimu         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:59:35 by aseptimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ int	forker(t_philo *philo, t_data *data, pid_t *pid)
 	return (0);
 }
 
+int	ft_norma(t_philo *philo)
+{
+	ft_cleaner(philo);
+	free(philo);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
@@ -63,6 +70,8 @@ int	main(int argc, char **argv)
 	t_philo	*philo;	
 	int		status;
 
+	if (argc != 5 && argc != 6)
+		return (error("Not enough arguments"));
 	status = 0;
 	philo = NULL;
 	data = NULL;
@@ -79,7 +88,5 @@ int	main(int argc, char **argv)
 			kill(philo[i].pid, SIGKILL);
 		i++;
 	}
-	ft_cleaner(philo);
-	free(philo);
-	return (0);
+	return (ft_norma(philo));
 }
